@@ -1,0 +1,25 @@
+1.下行遍历
+
+.contents  
+      /子节点列表，将<tag>存入列表
+.children
+      /循环遍历子节点
+.descendants
+      /循环遍历子孙节点
+
+2.上行遍历
+
+.parent
+      /父亲标签
+.parents
+      /父亲以上先辈标签
+      
+上行遍历代码   
+              soup=BeautifulSoup(demo,"html.parser")
+              for parent in soup.a.parents:
+                  if parent is None:
+                      print(parent)
+                  else:
+                      print(parent.name)
+   
+3.平行遍历
