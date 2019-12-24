@@ -1,8 +1,9 @@
 tag            标签
 name             标签的名字
 attributes       标签属性
-navigablestring  标签内非属性字符串
+navigablestring  标签内非属性字符串 ， <>中间的字符串
 comment          标签内字符串注释部分
+      /相关课程：https://www.bilibili.com/video/av9784617?p=23
 
 import requests
 r=requests.get("http://python123.io/ws/demo.html")
@@ -11,21 +12,58 @@ demo=r.text
 
 from bs4 import BeautifulSoup
 soup = BeautifulSoup(demo,"html.parser")
-/这两行代码即可解析网页
+      /这两行代码即可解析网页
 
 print(soup.prettify())
+      /结果
+
+              >>> print(soup.prettify())
+              <html>
+               <head>
+                <title>
+                 This is a python demo page
+                </title>
+               </head>
+               <body>
+                <p class="title">
+                 <b>
+                  The demo python introduces several python courses.
+                 </b>
+                </p>
+                <p class="course">
+                 Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:
+                 <a class="py1" href="http://www.icourse163.org/course/BIT-268001" id="link1">
+                  Basic Python
+                 </a>
+                 and
+                 <a class="py2" href="http://www.icourse163.org/course/BIT-1001870001" id="link2">
+                  Advanced Python
+                 </a>
+                 .
+                </p>
+               </body>
+              </html>
+              >>> 
+
 
 soup.title
-/显示标题
+      /显示标题
 soup.a
 soup.a.name
 soup.a.parent.name
-/显示标签
+      /显示标签
 tag=soup.a
 tag.attrs
-/显示属性
-type(tag)
-soup.a.string
+      /显示每个属性，提取每一个属性（其实属性里面是很多键值对，so属性即字典）
+tag.attrs['class']
+      /显示属性中的
+type(tag) 
+      /<class 'bs4.element.Tag'>
+type(tag.attrs)
+      /<class 'dict'>    /属性是字典
+
+soup.a.string  
+      /navigablestring
 soup.p.string
-/显示字符串
+      /显示字符串
 
