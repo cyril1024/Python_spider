@@ -1,0 +1,46 @@
+京东商品
+
+import requests
+r=requests.get("url")
+r.status_code
+/返回200即没问题
+r.encoding
+/查看编码形式
+r.text[-500：]
+/查看  倒数500-最后信息
+r.text[:1000]
+/查看  0-1000信息
+
+
+亚马逊（修改user-agent应对）
+
+kv=('user-agent':'Mozilla/5.0')
+url="url"
+r=requests.get(url,headers=kv)
+r.status_code
+r.request.headers
+/查看头部信息
+
+
+百度
+
+kv={'wd':'python'}
+r=requests.get("http://www.baidu.com/s",params=kv)
+r.status_code
+
+r.request.url
+/查看url
+
+
+图片爬取
+
+path= "D:/abc.jpeg"
+url=""
+r=requests.get(url)
+r.status_code
+
+with open(path,'wb') as f:
+    f.write(r.content)
+f.close()
+/将信息以二进制格式写入文件，并关闭
+    
