@@ -1,3 +1,9 @@
+tag            标签
+name             标签的名字
+attributes       标签属性
+navigablestring  标签内非属性字符串
+comment          标签内字符串注释部分
+
 import requests
 r=requests.get("http://python123.io/ws/demo.html")
 r.text
@@ -8,3 +14,18 @@ soup = BeautifulSoup(demo,"html.parser")
 /这两行代码即可解析网页
 
 print(soup.prettify())
+
+soup.title
+/显示标题
+soup.a
+soup.a.name
+soup.a.parent.name
+/显示标签
+tag=soup.a
+tag.attrs
+/显示属性
+type(tag)
+soup.a.string
+soup.p.string
+/显示字符串
+
