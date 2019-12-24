@@ -1,0 +1,10 @@
+import requests
+r=requests.get("http://python123.io/ws/demo.html")
+r.text
+demo=r.text
+
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(demo,"html.parser")
+/这两行代码即可解析网页
+
+print(soup.prettify())
