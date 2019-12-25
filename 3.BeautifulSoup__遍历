@@ -23,3 +23,16 @@
                       print(parent.name)
    
 3.平行遍历
+.next_sibling
+      /下一个平行节点
+.previous_sibling
+      /上一个平行节点
+.next_siblings
+      /迭代类型，后续所有平行节点
+.previous_siblings
+      /迭代类型，前续所有平行节点
+      
+      
+ 平行遍历后续节点代码
+                  for sibling in soup.a.next_siblings:
+                        print(sibling)
